@@ -1,9 +1,9 @@
 "use client";
 
-import { useState } from "react";
+import React, { useState } from "react";
 import { useTranslations } from "next-intl";
 import { motion, AnimatePresence } from "framer-motion";
-import { X, ExternalLink } from "lucide-react";
+import { X, ExternalLink, Settings, DollarSign, Globe, BarChart3, Laptop, Building2, Palette, Package } from "lucide-react";
 
 const projectKeys = ["p1", "p2", "p3", "p4", "p5", "p6", "p7", "p8"];
 
@@ -18,7 +18,10 @@ const projectTags: Record<string, string[]> = {
   p8: ["Python", "SQL", "ETL"],
 };
 
-const projectIcons = ["⚙️", "💰", "🌐", "📊", "💻", "🏗️", "🎨", "📦"];
+const projectIcons = [
+  Settings, DollarSign, Globe, BarChart3,
+  Laptop, Building2, Palette, Package,
+];
 
 export default function ProjectsGrid() {
   const t = useTranslations("projects");
@@ -53,7 +56,7 @@ export default function ProjectsGrid() {
               className="glass-card p-5 hover:border-gold/30 transition-all duration-300 hover:-translate-y-1 cursor-pointer group"
               onClick={() => setSelected(key)}
             >
-              <div className="text-2xl mb-3">{projectIcons[i]}</div>
+              <div className="text-2xl mb-3">{React.createElement(projectIcons[i], { className: "w-7 h-7 text-gold" })}</div>
               <h3 className="font-semibold text-text-primary mb-2 text-sm">
                 {t(`${key}_title`)}
               </h3>
@@ -97,7 +100,7 @@ export default function ProjectsGrid() {
               >
                 <X className="w-5 h-5" />
               </button>
-              <div className="text-3xl mb-4">{projectIcons[projectKeys.indexOf(selected)]}</div>
+              <div className="text-3xl mb-4">{React.createElement(projectIcons[projectKeys.indexOf(selected)], { className: "w-9 h-9 text-gold" })}</div>
               <h3 className="text-xl font-bold text-text-primary mb-3">
                 {t(`${selected}_title`)}
               </h3>
