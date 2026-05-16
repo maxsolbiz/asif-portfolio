@@ -2,6 +2,7 @@
 
 import { useTranslations } from "next-intl";
 import { motion } from "framer-motion";
+import Image from "next/image";
 import { GraduationCap, Award, Languages } from "lucide-react";
 
 export default function AboutSection() {
@@ -24,8 +25,13 @@ export default function AboutSection() {
             transition={{ duration: 0.6 }}
             className="lg:col-span-2 flex flex-col items-center lg:items-start"
           >
-            <div className="w-48 h-48 rounded-full bg-gradient-to-br from-gold/20 to-teal/20 flex items-center justify-center mb-6 border-2 border-gold/30">
-              <span className="text-5xl font-bold gold-gradient-text">MAS</span>
+            <div className="w-48 h-48 rounded-full overflow-hidden mb-6 border-2 border-gold/30">
+              <Image
+                src="/profile.png"
+                alt="Muhammad Asif Shahzad"
+                width="192" height="192"
+                className="w-full h-full object-cover"
+              />
             </div>
             <h2 className="font-bold text-3xl mb-4 text-center lg:text-left">{t("title")}</h2>
           </motion.div>
