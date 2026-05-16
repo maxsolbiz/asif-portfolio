@@ -22,7 +22,7 @@ export default function LanguageSwitcher() {
   };
 
   return (
-    <div className="flex items-center gap-1.5 bg-white/5 border border-gold/20 rounded-full px-3 py-1.5">
+    <div className="flex items-center gap-1.5 bg-bg-surface border border-gold/20 rounded-full px-3 py-1.5">
       <Globe className="w-3.5 h-3.5 text-gold" />
       {languages.map((lang) => (
         <button
@@ -30,7 +30,7 @@ export default function LanguageSwitcher() {
           onClick={() => switchLanguage(lang.code)}
           className={`text-xs px-2 py-1 rounded-full transition-all font-medium ${
             locale === lang.code
-              ? "bg-gold text-midnight"
+              ? "bg-gold text-[#0A0E1A]"
               : "text-text-muted hover:text-gold"
           }`}
         >

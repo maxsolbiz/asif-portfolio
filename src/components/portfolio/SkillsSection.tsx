@@ -88,7 +88,7 @@ export default function SkillsSection() {
               className={cn(
                 "px-4 py-2 rounded-full text-sm font-medium transition-all border",
                 activeTab === i
-                  ? "bg-gold text-midnight border-gold"
+                  ? "bg-gold text-[#0A0E1A] border-gold"
                   : "border-gold/20 text-text-muted hover:text-gold hover:border-gold/40"
               )}
             >
@@ -109,7 +109,7 @@ export default function SkillsSection() {
             {skillData[tabKey].map((skill) => (
               <span
                 key={skill}
-                className="px-4 py-2 rounded-full border border-gold/15 bg-white/5 text-sm text-text-muted hover:border-gold/30 hover:text-gold transition-all"
+                className="px-4 py-2 rounded-full border border-gold/15 bg-bg-surface text-sm text-text-muted hover:border-gold/30 hover:text-gold transition-all"
               >
                 {skill}
               </span>

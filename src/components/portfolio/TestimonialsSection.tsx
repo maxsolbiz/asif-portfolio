@@ -36,7 +36,7 @@ export default function TestimonialsSection() {
           {badges.map((badge) => (
             <span
               key={badge}
-              className="px-5 py-2.5 rounded-full border border-gold/20 bg-white/5 text-sm text-gold font-medium"
+              className="px-5 py-2.5 rounded-full border border-gold/20 bg-bg-surface text-sm text-gold font-medium"
             >
               {t(badge)}
             </span>

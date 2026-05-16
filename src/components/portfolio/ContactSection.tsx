@@ -44,9 +44,7 @@ export default function ContactSection() {
   ];
 
   return (
-    <section id="contact" className="py-28 relative" style={{
-      background: "linear-gradient(180deg, var(--midnight), #05080f, var(--midnight))",
-    }}>
+    <section id="contact" className="py-28 relative bg-bg">
       <div className="max-w-6xl mx-auto px-4 sm:px-6">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -111,21 +109,21 @@ export default function ContactSection() {
               name="name"
               placeholder={t("name_placeholder")}
               required
-              className="w-full bg-white/5 border border-gold/20 rounded-lg px-4 py-3 text-sm text-text-primary placeholder:text-text-muted/50 outline-none focus:border-gold/50 transition-colors"
+              className="w-full bg-bg-surface border border-gold/20 rounded-lg px-4 py-3 text-sm text-text-primary placeholder:text-text-muted/50 outline-none focus:border-gold/50 transition-colors"
             />
             <input
               type="email"
               name="email"
               placeholder={t("email_placeholder")}
               required
-              className="w-full bg-white/5 border border-gold/20 rounded-lg px-4 py-3 text-sm text-text-primary placeholder:text-text-muted/50 outline-none focus:border-gold/50 transition-colors"
+              className="w-full bg-bg-surface border border-gold/20 rounded-lg px-4 py-3 text-sm text-text-primary placeholder:text-text-muted/50 outline-none focus:border-gold/50 transition-colors"
             />
             <textarea
               name="message"
               placeholder={t("message_placeholder")}
               rows={4}
               required
-              className="w-full bg-white/5 border border-gold/20 rounded-lg px-4 py-3 text-sm text-text-primary placeholder:text-text-muted/50 outline-none focus:border-gold/50 transition-colors resize-none"
+              className="w-full bg-bg-surface border border-gold/20 rounded-lg px-4 py-3 text-sm text-text-primary placeholder:text-text-muted/50 outline-none focus:border-gold/50 transition-colors resize-none"
             />
             <GlowButton type="submit" className="w-full" disabled={status === "sending"}>
               {status === "sending" ? t("sending") : t("send")}
