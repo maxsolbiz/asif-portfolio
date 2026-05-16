@@ -46,7 +46,7 @@ export default async function LocaleLayout({ children, params }: Props) {
     <html lang={locale} dir={isRtl ? "rtl" : "ltr"} suppressHydrationWarning>
       <body className={fontClass}>
         <NextIntlClientProvider locale={locale} messages={messages}>
-          <ThemeProvider attribute="class" defaultTheme="dark" enableSystem={false}>
+          <ThemeProvider attribute="class" defaultTheme="dark" enableSystem={false} value={{ light: "light", dark: "dark" }}>
             {children}
           </ThemeProvider>
         </NextIntlClientProvider>
