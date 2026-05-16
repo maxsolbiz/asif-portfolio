@@ -2,8 +2,7 @@
 
 import { useTranslations } from "next-intl";
 import { motion } from "framer-motion";
-import Image from "next/image";
-import { Download, FileText, Eye } from "lucide-react";
+import { Download, FileText, ExternalLink } from "lucide-react";
 import GlowButton from "./GlowButton";
 import ResumeDownloadButton from "./ResumeDownloadButton";
 
@@ -35,44 +34,73 @@ export default function ResumeSection() {
           transition={{ duration: 0.5 }}
           className="relative"
         >
-          {/* Decorative top bar */}
-          <div className="absolute -top-3 left-8 right-8 h-3 bg-gold/10 rounded-t-lg border border-gold/20 border-b-0" />
-          <div className="absolute -top-6 left-16 right-16 h-3 bg-gold/5 rounded-t-lg border border-gold/10 border-b-0" />
-
-          {/* Main card */}
-          <div className="glass-card overflow-hidden border-gold/20">
+          {/* Light card for PDF preview */}
+          <div className="bg-white rounded-2xl overflow-hidden border border-gray-200 shadow-lg">
             {/* Mac-style window header */}
-            <div className="flex items-center gap-2 px-5 py-3 border-b border-gold/10 bg-white/5">
-              <div className="w-3 h-3 rounded-full bg-red-500/70" />
-              <div className="w-3 h-3 rounded-full bg-yellow-500/70" />
-              <div className="w-3 h-3 rounded-full bg-green-500/70" />
-              <div className="flex items-center gap-2 ml-3 text-xs text-text-muted/60">
+            <div className="flex items-center gap-2 px-5 py-3 border-b border-gray-200 bg-gray-50">
+              <div className="w-3 h-3 rounded-full bg-red-500" />
+              <div className="w-3 h-3 rounded-full bg-yellow-500" />
+              <div className="w-3 h-3 rounded-full bg-green-500" />
+              <div className="flex items-center gap-2 ml-3 text-xs text-gray-500">
                 <FileText className="w-3.5 h-3.5" />
-                Muhammad_Asif_Shahzad_Resume.png
+                Muhammad_Asif_Shahzad_Resume.pdf
               </div>
-              <div className="ml-auto flex items-center gap-1 text-[10px] text-text-muted/40">
-                <Eye className="w-3 h-3" /> Preview
+              <div className="ml-auto flex items-center gap-1 text-[10px] text-gray-400">
+                <ExternalLink className="w-3 h-3" /> Open
               </div>
             </div>
 
-            {/* Image preview with scroll */}
-            <div className="relative max-h-[600px] overflow-y-auto bg-white/5">
-              <Image
-                src="/resume.png"
-                alt="Muhammad Asif Shahzad Resume"
-                width={800}
-                height={1100}
-                className="w-full h-auto object-contain"
-                priority
-              />
+            {/* Resume content preview - light theme */}
+            <div className="p-8 sm:p-10 max-h-[600px] overflow-y-auto">
+              <div className="max-w-2xl mx-auto">
+                {/* Header */}
+                <div className="flex justify-between items-start pb-4 mb-5 border-b-2 border-amber-400">
+                  <div>
+                    <h3 className="text-xl font-bold text-gray-900">Muhammad Asif Shahzad</h3>
+                    <p className="text-sm text-amber-600 font-semibold">Technical Founder & Full-Stack Architect</p>
+                    <p className="text-xs text-gray-500 mt-0.5">Dubai, UAE | maxsolbiz@gmail.com | +971 50 562 4287</p>
+                  </div>
+                  <div className="text-xs text-gray-500 text-right leading-relaxed">
+                    25+ Years Experience<br />500+ Projects<br />CCNA · MCP
+                  </div>
+                </div>
 
-              {/* Gradient fade at bottom */}
-              <div className="sticky bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-midnight/80 to-transparent pointer-events-none" />
+                {/* Summary */}
+                <div className="mb-4">
+                  <h4 className="text-xs font-bold text-gray-800 uppercase tracking-wide border-b border-amber-400 pb-1 mb-2">Professional Summary</h4>
+                  <p className="text-sm text-gray-700 leading-relaxed">
+                    Results-driven Technical Founder and Full-Stack Systems Architect with 25+ years of hands-on experience
+                    building scalable SaaS platforms, enterprise infrastructure, AI-assisted workflows, and business automation
+                    systems. Founder of MaxSolBiz IT Solutions.
+                  </p>
+                </div>
+
+                {/* Skills preview */}
+                <div className="mb-4">
+                  <h4 className="text-xs font-bold text-gray-800 uppercase tracking-wide border-b border-amber-400 pb-1 mb-2">Technical Skills</h4>
+                  <div className="flex flex-wrap gap-1.5">
+                    {["Laravel", "React.js", "Next.js", "Python", "MySQL", "Linux", "MikroTik", "Cisco", "AI/LLM", "Photoshop"].map((s) => (
+                      <span key={s} className="text-xs px-2 py-0.5 bg-amber-50 text-gray-800 rounded border border-amber-200">{s}</span>
+                    ))}
+                  </div>
+                </div>
+
+                {/* Experience preview */}
+                <div>
+                  <h4 className="text-xs font-bold text-gray-800 uppercase tracking-wide border-b border-amber-400 pb-1 mb-2">Experience</h4>
+                  <div className="flex justify-between items-baseline">
+                    <span className="text-sm font-semibold text-gray-900">Founder & Technical Director</span>
+                    <span className="text-xs text-gray-500">2008 – Present</span>
+                  </div>
+                  <p className="text-xs text-amber-600 font-medium">MaxSolBiz IT Solutions — Lahore / Dubai</p>
+                  <p className="text-xs text-gray-600 mt-1">Architected 50+ custom SaaS platforms, admin panels, and financial workflow systems...</p>
+                </div>
+              </div>
             </div>
 
             {/* Bottom bar */}
-            <div className="flex items-center justify-between px-5 py-4 border-t border-gold/10 bg-white/5">
-              <div className="text-xs text-text-muted/50">PNG · 192 KB</div>
+            <div className="flex items-center justify-between px-5 py-4 border-t border-gray-200 bg-gray-50">
+              <div className="text-xs text-gray-500">PDF · Formatted Resume</div>
               <ResumeDownloadButton>
                 <GlowButton size="sm">
                   <Download className="w-4 h-4" />

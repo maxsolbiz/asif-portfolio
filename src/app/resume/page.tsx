@@ -48,16 +48,34 @@ const experience = [
   },
 ];
 
-export default function ResumePage() {
-  const skills = [
-    "Laravel", "PHP", "JavaScript", "TypeScript", "React.js", "Next.js", "Tailwind CSS",
-    "MySQL", "PostgreSQL", "REST APIs", "GraphQL", "Python", "Excel VBA",
-    "Linux Server", "MikroTik", "Ubiquiti", "Cisco", "VPN", "Firewall",
-    "AI Prompt Engineering", "ChatGPT / Claude", "LLM Integration",
-    "Adobe Photoshop", "Illustrator", "CorelDRAW", "Canva", "UI/UX Design",
-    "Project Management", "System Analysis", "Solutions Architecture",
-  ];
+const skillCategories = [
+  {
+    name: "Full-Stack Development",
+    items: ["Laravel", "PHP", "JavaScript", "TypeScript", "React.js", "Next.js", "HTML5", "CSS3", "Tailwind CSS", "Node.js", "REST APIs", "GraphQL", "JSON"],
+  },
+  {
+    name: "Databases & Data",
+    items: ["MySQL", "PostgreSQL", "MongoDB", "SQL", "Excel VBA", "Python", "ETL Pipelines", "Data Cleaning", "Power BI", "Google Sheets Automation"],
+  },
+  {
+    name: "Infrastructure & Networking",
+    items: ["Linux Server Admin", "Cloud Hosting", "VPS Management", "MikroTik", "Ubiquiti", "Cisco", "Juniper", "VPN", "Firewall", "Routing & Switching", "LAN/WAN", "Fiber Optic", "CCTV", "Network Security"],
+  },
+  {
+    name: "AI & Automation",
+    items: ["Prompt Engineering", "ChatGPT / Claude / Gemini", "LLM Integration", "AI-Assisted Development", "Chain-of-Thought", "Agentic AI Workflows", "AI Product Development", "Webhook Automation"],
+  },
+  {
+    name: "Design & Creative",
+    items: ["Adobe Photoshop", "Adobe Illustrator", "CorelDRAW", "Canva", "UI/UX Design", "Logo & Brand Identity", "Digital Branding", "Typography"],
+  },
+  {
+    name: "Systems & Management",
+    items: ["System Analysis", "Solutions Architecture", "SaaS Platform Design", "ERP/CRM Architecture", "Project Management", "Technical Leadership", "Business Process Analysis", "Workflow Automation"],
+  },
+];
 
+export default function ResumePage() {
   useEffect(() => {
     const timer = setTimeout(() => window.print(), 500);
     return () => clearTimeout(timer);
@@ -76,6 +94,7 @@ export default function ResumePage() {
             font-size: 10px;
             line-height: 1.5;
             padding: 0;
+            background: #ffffff;
           }
           .container { max-width: 210mm; margin: 0 auto; padding: 0; }
 
@@ -113,10 +132,17 @@ export default function ResumePage() {
           .exp-bullet-dot { width: 4px; margin-right: 4px; color: #C9A84C; font-size: 9px; }
           .exp-bullet-text { font-size: 8.5px; line-height: 1.4; color: #1a1a2e; flex: 1; }
 
-          .skills { display: flex; flex-wrap: wrap; gap: 3px; }
+          .skills-cat { margin-bottom: 6px; }
+          .skills-cat-title {
+            font-size: 8.5px; font-weight: 700; color: #C9A84C;
+            margin-bottom: 2px; text-transform: uppercase; letter-spacing: 0.5px;
+          }
+          .skills {
+            display: flex; flex-wrap: wrap; gap: 2.5px;
+          }
           .skill-pill {
-            font-size: 7.5px; padding: 2px 6px; background: #C9A84C15;
-            color: #0A0E1A; border-radius: 3px;
+            font-size: 7.5px; padding: 2px 5px; background: #f0efe6;
+            color: #0A0E1A; border-radius: 2px; border: 0.5px solid #e0dcc8;
           }
 
           .edu-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4px; }
@@ -149,7 +175,7 @@ export default function ResumePage() {
                 Dubai, UAE | maxsolbiz@gmail.com | +971 50 562 4287 | maxsolbiz.com
               </div>
               <div className="contact" style={{ marginTop: 1 }}>
-                English · Urdu · Punjabi · Arabic (basic)
+                English · Urdu · Punjabi
               </div>
             </div>
             <div className="stats">
@@ -191,11 +217,16 @@ export default function ResumePage() {
 
           <div className="section">
             <div className="section-title">Technical Skills</div>
-            <div className="skills">
-              {skills.map((skill, i) => (
-                <span key={i} className="skill-pill">{skill}</span>
-              ))}
-            </div>
+            {skillCategories.map((cat, i) => (
+              <div key={i} className="skills-cat">
+                <div className="skills-cat-title">{cat.name}</div>
+                <div className="skills">
+                  {cat.items.map((skill, j) => (
+                    <span key={j} className="skill-pill">{skill}</span>
+                  ))}
+                </div>
+              </div>
+            ))}
           </div>
 
           <div className="section">
