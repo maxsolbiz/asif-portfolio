@@ -1,6 +1,7 @@
 import { NextIntlClientProvider } from "next-intl";
-import { getMessages, getTranslations } from "next-intl/server";
+import { getMessages } from "next-intl/server";
 import { ThemeProvider } from "next-themes";
+import { routing } from "@/i18n/routing";
 import { DM_Sans, Noto_Naskh_Arabic, Noto_Nastaliq_Urdu } from "next/font/google";
 
 const dmSans = DM_Sans({
@@ -20,12 +21,14 @@ const notoNastaliqUrdu = Noto_Nastaliq_Urdu({
   display: "swap",
 });
 
-const fonts = { dmSans, notoNaskhArabic, notoNastaliqUrdu };
-
 type Props = {
   children: React.ReactNode;
   params: Promise<{ locale: string }>;
 };
+
+export function generateStaticParams() {
+  return routing.locales.map((locale) => ({ locale }));
+}
 
 export default async function LocaleLayout({ children, params }: Props) {
   const { locale } = await params;
@@ -34,10 +37,10 @@ export default async function LocaleLayout({ children, params }: Props) {
   const isRtl = locale === "ar" || locale === "ur";
   const fontClass =
     locale === "ar"
-      ? fonts.notoNaskhArabic.className
+      ? notoNaskhArabic.className
       : locale === "ur"
-        ? fonts.notoNastaliqUrdu.className
-        : fonts.dmSans.className;
+        ? notoNastaliqUrdu.className
+        : dmSans.className;
 
   return (
     <html lang={locale} dir={isRtl ? "rtl" : "ltr"} suppressHydrationWarning>

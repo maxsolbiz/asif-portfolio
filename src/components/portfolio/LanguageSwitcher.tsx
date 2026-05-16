@@ -1,8 +1,7 @@
 "use client";
 
 import { useLocale } from "next-intl";
-import { usePathname, useRouter } from "next/navigation";
-import { useTransition } from "react";
+import { usePathname, useRouter } from "@/i18n/routing";
 import { Globe } from "lucide-react";
 
 const languages = [
@@ -14,14 +13,12 @@ const languages = [
 
 export default function LanguageSwitcher() {
   const locale = useLocale();
-  const router = useRouter();
   const pathname = usePathname();
-  const [isPending, startTransition] = useTransition();
+  const router = useRouter();
 
   const switchLanguage = (newLocale: string) => {
     if (newLocale === locale) return;
-    const newPath = pathname.replace(`/${locale}`, `/${newLocale}`);
-    startTransition(() => router.replace(newPath));
+    router.replace(pathname, { locale: newLocale });
   };
 
   return (
@@ -31,7 +28,6 @@ export default function LanguageSwitcher() {
         <button
           key={lang.code}
           onClick={() => switchLanguage(lang.code)}
-          disabled={isPending}
           className={`text-xs px-2 py-1 rounded-full transition-all font-medium ${
             locale === lang.code
               ? "bg-gold text-midnight"
