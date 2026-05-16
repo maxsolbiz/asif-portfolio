@@ -1,30 +1,30 @@
 import { NextResponse } from "next/server";
-import fs from "fs";
-import path from "path";
-import { PDFDocument } from "pdf-lib";
+import ReactPDF from "@react-pdf/renderer";
+import ResumePDF from "@/lib/ResumePDF";
+import React from "react";
 
 export async function GET() {
   try {
-    const imagePath = path.join(process.cwd(), "public", "resume.png");
-    const imageBytes = fs.readFileSync(imagePath);
+    const stream = await ReactPDF.renderToStream(React.createElement(ResumePDF));
 
-    const pdfDoc = await PDFDocument.create();
-    const image = await pdfDoc.embedPng(imageBytes);
+    const chunks: Buffer[] = [];
+    await new Promise<void>((resolve, reject) => {
+      stream.on("data", (chunk: Buffer) => chunks.push(chunk));
+      stream.on("end", resolve);
+      stream.on("error", reject);
+    });
 
-    const { width, height } = image.scale(1);
-    const page = pdfDoc.addPage([width, height]);
-    page.drawImage(image, { x: 0, y: 0, width, height });
+    const pdfBuffer = Buffer.concat(chunks);
 
-    const pdfBytes = await pdfDoc.save();
-
-    return new NextResponse(Buffer.from(pdfBytes), {
+    return new NextResponse(pdfBuffer, {
       headers: {
         "Content-Type": "application/pdf",
         "Content-Disposition": 'attachment; filename="Muhammad_Asif_Shahzad_Resume.pdf"',
-        "Content-Length": pdfBytes.length.toString(),
+        "Content-Length": pdfBuffer.length.toString(),
       },
     });
-  } catch {
+  } catch (error) {
+    console.error("PDF generation error:", error);
     return NextResponse.json({ error: "Failed to generate PDF" }, { status: 500 });
   }
 }
