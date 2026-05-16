@@ -31,6 +31,7 @@ export default function AboutSection() {
                 alt="Muhammad Asif Shahzad"
                 width="192" height="192"
                 className="w-full h-full object-cover"
+                priority
               />
             </div>
             <h2 className="font-bold text-3xl mb-4 text-center lg:text-left">{t("title")}</h2>
