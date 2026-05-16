@@ -1,0 +1,96 @@
+@import "tailwindcss";
+
+:root {
+  --gold: #C9A84C;
+  --gold-light: #E8C97A;
+  --teal: #0EA5E9;
+  --teal-glow: rgba(14,165,233,0.15);
+  --midnight: #0A0E1A;
+  --obsidian: #111827;
+  --card-dark: #1a1a2e;
+  --text-primary: #F8FAFC;
+  --text-muted: #94A3B8;
+  --border: rgba(201,168,76,0.2);
+  --bg-light: #ffffff;
+  --text-light: #1a1a2e;
+  --text-muted-light: #64748b;
+  --border-light: #e2e8f0;
+  --card-light: #ffffff;
+  --bg-section-light: #f8fafc;
+}
+
+@theme inline {
+  --color-gold: var(--gold);
+  --color-gold-light: var(--gold-light);
+  --color-teal: var(--teal);
+  --color-midnight: var(--midnight);
+  --color-obsidian: var(--obsidian);
+  --color-card-dark: var(--card-dark);
+  --color-text-primary: var(--text-primary);
+  --color-text-muted: var(--text-muted);
+  --color-border: var(--border);
+  --font-sans: "DM Sans", sans-serif;
+  --font-arabic: "Noto Naskh Arabic", serif;
+  --font-urdu: "Noto Nastaliq Urdu", serif;
+}
+
+.gold-gradient-text {
+  background: linear-gradient(135deg, var(--gold), var(--gold-light));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.glass-card {
+  background: rgba(255,255,255,0.03);
+  backdrop-filter: blur(12px);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+}
+
+.glass-nav {
+  background: rgba(10,14,26,0.8);
+  backdrop-filter: blur(20px);
+  border-bottom: 1px solid var(--border);
+}
+
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: var(--midnight); }
+::-webkit-scrollbar-thumb { background: var(--gold); border-radius: 3px; }
+
+body {
+  background: var(--midnight);
+  color: var(--text-primary);
+  font-family: "DM Sans", sans-serif;
+  overflow-x: hidden;
+  transition: background 0.3s, color 0.3s;
+}
+
+.light body,
+body.light {
+  background: var(--bg-light);
+  color: var(--text-light);
+}
+
+[dir="rtl"] {
+  text-align: right;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+@keyframes pulse-glow {
+  0%, 100% { box-shadow: 0 0 10px rgba(201,168,76,0.3); }
+  50% { box-shadow: 0 0 30px rgba(201,168,76,0.6); }
+}
+
+.animate-float { animation: float 3s ease-in-out infinite; }
+.animate-pulse-glow { animation: pulse-glow 2s ease-in-out infinite; }
+
+.section-divider {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--gold), transparent);
+  opacity: 0.3;
+}
