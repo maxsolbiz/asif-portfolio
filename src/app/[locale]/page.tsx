@@ -5,6 +5,7 @@ import { useLocale } from "next-intl";
 import { useTranslations } from "next-intl";
 import HeroSection from "@/components/portfolio/HeroSection";
 import AboutSection from "@/components/portfolio/AboutSection";
+import ResumeSection from "@/components/portfolio/ResumeSection";
 import SkillsSection from "@/components/portfolio/SkillsSection";
 import ExperienceTimeline from "@/components/portfolio/ExperienceTimeline";
 import ProjectsGrid from "@/components/portfolio/ProjectsGrid";
@@ -105,6 +106,7 @@ export default function PortfolioPage() {
         <HeroSection />
         <div className="section-divider mx-6" />
         <AboutSection />
+        <ResumeSection />
         <SkillsSection />
         <ExperienceTimeline />
         <ProjectsGrid />
