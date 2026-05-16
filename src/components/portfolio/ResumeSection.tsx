@@ -5,6 +5,7 @@ import { motion } from "framer-motion";
 import Image from "next/image";
 import { Download, FileText, Eye } from "lucide-react";
 import GlowButton from "./GlowButton";
+import ResumeDownloadButton from "./ResumeDownloadButton";
 
 export default function ResumeSection() {
   const t = useTranslations("nav");
@@ -72,12 +73,12 @@ export default function ResumeSection() {
             {/* Bottom bar */}
             <div className="flex items-center justify-between px-5 py-4 border-t border-gold/10 bg-white/5">
               <div className="text-xs text-text-muted/50">PNG · 192 KB</div>
-              <a href="/api/resume">
+              <ResumeDownloadButton>
                 <GlowButton size="sm">
                   <Download className="w-4 h-4" />
                   {t("resume")}
                 </GlowButton>
-              </a>
+              </ResumeDownloadButton>
             </div>
           </div>
         </motion.div>

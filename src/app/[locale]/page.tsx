@@ -14,6 +14,7 @@ import ContactSection from "@/components/portfolio/ContactSection";
 import ThemeToggle from "@/components/portfolio/ThemeToggle";
 import LanguageSwitcher from "@/components/portfolio/LanguageSwitcher";
 import GlowButton from "@/components/portfolio/GlowButton";
+import ResumeDownloadButton from "@/components/portfolio/ResumeDownloadButton";
 import { Menu, X } from "lucide-react";
 
 function NavBar() {
@@ -58,9 +59,9 @@ function NavBar() {
               {t(link.key)}
             </a>
           ))}
-          <a href="/api/resume">
+          <ResumeDownloadButton>
             <GlowButton size="sm">{t("resume")}</GlowButton>
-          </a>
+          </ResumeDownloadButton>
         </div>
 
         <button className="md:hidden text-text-primary" onClick={() => setOpen(!open)}>
@@ -81,9 +82,9 @@ function NavBar() {
               {t(link.key)}
             </a>
           ))}
-          <a href="/api/resume">
+          <ResumeDownloadButton>
             <GlowButton size="sm" className="w-full">{t("resume")}</GlowButton>
-          </a>
+          </ResumeDownloadButton>
         </div>
       )}
     </nav>

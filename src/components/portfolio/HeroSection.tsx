@@ -3,6 +3,7 @@
 import { useTranslations } from "next-intl";
 import { motion } from "framer-motion";
 import GlowButton from "./GlowButton";
+import ResumeDownloadButton from "./ResumeDownloadButton";
 import { useTypewriter } from "@/hooks/useTypewriter";
 import { useCountUp } from "@/lib/useCountUp";
 
@@ -84,9 +85,9 @@ export default function HeroSection() {
             transition={{ duration: 0.6, delay: 0.4 }}
             className="flex flex-col sm:flex-row gap-4 mb-12"
           >
-            <a href="/api/resume">
+            <ResumeDownloadButton>
               <GlowButton size="lg">{t("cta_resume")}</GlowButton>
-            </a>
+            </ResumeDownloadButton>
             <GlowButton
               variant="ghost"
               size="lg"
