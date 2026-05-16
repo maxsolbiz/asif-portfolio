@@ -72,10 +72,7 @@ export default function ResumeSection() {
             {/* Bottom bar */}
             <div className="flex items-center justify-between px-5 py-4 border-t border-gold/10 bg-white/5">
               <div className="text-xs text-text-muted/50">PNG · 192 KB</div>
-              <a
-                href="/resume.png"
-                download="Muhammad_Asif_Shahzad_Resume.png"
-              >
+              <a href="/api/resume">
                 <GlowButton size="sm">
                   <Download className="w-4 h-4" />
                   {t("resume")}
