@@ -84,7 +84,7 @@ export default function HeroSection() {
             transition={{ duration: 0.6, delay: 0.4 }}
             className="flex flex-col sm:flex-row gap-4 mb-12"
           >
-            <a href="/resume.pdf" download>
+            <a href="/resume.png" download="Muhammad_Asif_Shahzad_Resume.png">
               <GlowButton size="lg">{t("cta_resume")}</GlowButton>
             </a>
             <GlowButton

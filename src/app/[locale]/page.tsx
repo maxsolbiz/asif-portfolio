@@ -58,7 +58,7 @@ function NavBar() {
               {t(link.key)}
             </a>
           ))}
-          <a href="/resume.pdf" download>
+          <a href="/resume.png" download="Muhammad_Asif_Shahzad_Resume.png">
             <GlowButton size="sm">{t("resume")}</GlowButton>
           </a>
         </div>
@@ -81,7 +81,7 @@ function NavBar() {
               {t(link.key)}
             </a>
           ))}
-          <a href="/resume.pdf" download>
+          <a href="/resume.png" download="Muhammad_Asif_Shahzad_Resume.png">
             <GlowButton size="sm" className="w-full">{t("resume")}</GlowButton>
           </a>
         </div>
